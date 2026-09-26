@@ -119,6 +119,8 @@ const generateMockMarketData = (pair: string, days: number): MarketData[] => {
   return data;
 };
 
+let marketDataRequest = 0;
+
 const useTradingStore = create<TradingState>((set, get) => ({
   signals: [],
   activePair: 'EURUSD',
@@ -141,6 +143,7 @@ const useTradingStore = create<TradingState>((set, get) => ({
   },
 
   fetchMarketData: async (pair: string, timeframe: string) => {
+    const request = ++marketDataRequest;
     set({ isLoading: true, error: null });
     try {
       // In a real implementation, this would be an API call
@@ -153,7 +156,9 @@ const useTradingStore = create<TradingState>((set, get) => ({
                   
       const data = generateMockMarketData(pair, days);
       
-      set({ 
+      if (request !== marketDataRequest) return;
+
+      set({
         marketData: data,
         activePair: pair,
         timeframe,
@@ -161,6 +166,7 @@ const useTradingStore = create<TradingState>((set, get) => ({
         isLoading: false 
       });
     } catch (error) {
+      if (request !== marketDataRequest) return;
       set({ error: 'Failed to fetch market data', isLoading: false });
     }
   },
