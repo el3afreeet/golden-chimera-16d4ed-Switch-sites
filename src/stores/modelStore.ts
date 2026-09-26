@@ -122,7 +122,7 @@ const useModelStore = create<ModelState>((set, get) => ({
         activeModel: mockModels.find(model => model.isActive) || mockModels[0],
         isLoading: false 
       });
-    } catch (error) {
+    } catch {
       set({ error: 'Failed to fetch models', isLoading: false });
     }
   },
@@ -217,7 +217,7 @@ const useModelStore = create<ModelState>((set, get) => ({
         isEvolutionInProgress: false,
         evolutionProgress: 100,
       });
-    } catch (error) {
+    } catch {
       set({ 
         error: 'Evolution process failed', 
         isEvolutionInProgress: false 
@@ -235,7 +235,7 @@ const useModelStore = create<ModelState>((set, get) => ({
         evolutionHistory: mockEvolutionHistory,
         isLoading: false 
       });
-    } catch (error) {
+    } catch {
       set({ error: 'Failed to fetch evolution history', isLoading: false });
     }
   },

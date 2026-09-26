@@ -135,7 +135,7 @@ const useTradingStore = create<TradingState>((set, get) => ({
       await new Promise(resolve => setTimeout(resolve, 800));
       
       set({ signals: mockSignals, isLoading: false });
-    } catch (error) {
+    } catch {
       set({ error: 'Failed to fetch signals', isLoading: false });
     }
   },
@@ -160,7 +160,7 @@ const useTradingStore = create<TradingState>((set, get) => ({
         availablePairs: mockPairs, // Setting available pairs on first load
         isLoading: false 
       });
-    } catch (error) {
+    } catch {
       set({ error: 'Failed to fetch market data', isLoading: false });
     }
   },
@@ -236,7 +236,7 @@ const useTradingStore = create<TradingState>((set, get) => ({
         signals: [newSignal, ...signals],
         isLoading: false 
       });
-    } catch (error) {
+    } catch {
       set({ error: 'Failed to generate signal', isLoading: false });
     }
   },

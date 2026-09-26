@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { EvolutionEvent } from '../../types';
 import { ArrowUp, Clock, Zap, Brain } from 'lucide-react';
 
@@ -8,8 +7,6 @@ interface EvolutionTimelineProps {
 }
 
 const EvolutionTimeline: React.FC<EvolutionTimelineProps> = ({ events }) => {
-  const { t } = useTranslation();
-
   const getTriggerIcon = (trigger: string) => {
     switch (trigger) {
       case 'scheduled':
@@ -32,7 +29,7 @@ const EvolutionTimeline: React.FC<EvolutionTimelineProps> = ({ events }) => {
       {/* Vertical line */}
       <div className="absolute left-3 top-2 bottom-0 w-0.5 bg-dark-700" />
 
-      {events.map((event, index) => (
+      {events.map((event) => (
         <div key={event.id} className="relative">
           {/* Circle indicator */}
           <div className="absolute -left-8 mt-1.5 w-6 h-6 rounded-full flex items-center justify-center bg-dark-800 border-2 border-primary-500">
