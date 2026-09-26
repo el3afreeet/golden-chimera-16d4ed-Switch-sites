@@ -209,7 +209,7 @@ const Evolution: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {models.slice(0, 4).map((model, index) => (
+                  {models.slice(0, 4).map((model) => (
                     <tr key={model.id} className="border-t border-dark-700">
                       <td className="py-2 flex items-center">
                         <Cpu className="h-3 w-3 mr-1 text-primary-400" />
