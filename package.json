@@ -11,16 +11,15 @@
     "server": "node server/index.js"
   },
   "dependencies": {
+    "date-fns": "^3.3.1",
+    "i18next": "^23.7.18",
+    "lightweight-charts": "^4.1.1",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "axios": "^1.6.6",
+    "react-i18next": "^14.0.1",
     "react-router-dom": "^6.21.3",
     "recharts": "^2.10.3",
-    "i18next": "^23.7.18",
-    "react-i18next": "^14.0.1",
-    "lightweight-charts": "^4.1.1",
-    "date-fns": "^3.3.1",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
